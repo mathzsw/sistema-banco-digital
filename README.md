@@ -1,95 +1,52 @@
 # Sistema Bancário Digital
 
-Projeto desenvolvido em **TypeScript** para a atividade de Programação Orientada a Objetos (POO).
+Este projeto foi feito para a atividade de POO do professor Havana. A proposta é criar um sistema simples para uma cooperativa de crédito, usando TypeScript.
 
-## Informações da atividade
+**Aluno:** Matheus Augusto Rodrigues de Alencar  
+**Turma:** 2º Ano A  
+**Professor:** Havana Diogo Alves Andrade
 
-- **Aluno:** Matheus Augusto Rodrigues de Alencar
-- **Turma:** 2º Ano A
-- **Curso:** Técnico em Desenvolvimento de Sistemas
-- **Professor:** Havana Diogo Alves Andrade
+## O que o sistema faz
 
-## Sobre o projeto
+No sistema, é possível cadastrar clientes e adicionar contas a eles. Cada cliente pode ter mais de uma conta.
 
-O sistema simula operações básicas de um banco digital. Ele permite cadastrar clientes, associar contas a cada cliente e realizar operações bancárias, aplicando conceitos de Programação Orientada a Objetos.
+As contas permitem:
+- Consultar o saldo;
+- Fazer depósitos;
+- Fazer saques;
+- Bloquear e desbloquear a conta.
 
-## Funcionalidades
+Também foram criadas regras para evitar problemas durante os saques. O sistema não permite sacar valores inválidos, sacar de uma conta bloqueada, retirar mais dinheiro do que existe no saldo ou ultrapassar o limite diário. Quando acontece algum desses erros, uma exceção informa o motivo. No caso de saldo insuficiente, também é informado quanto falta.
 
-- Cadastro de clientes com nome, CPF, endereço e renda.
-- Criação de contas com número, agência, data de abertura e saldo.
-- Associação de um cliente a uma ou mais contas.
-- Consulta de saldo.
-- Depósito e saque.
-- Bloqueio e desbloqueio de contas.
-- Validação de saques, incluindo valor inválido, conta bloqueada, saldo insuficiente e limite diário.
-- Envio de notificações por SMS, e-mail ou aplicativo.
+## Interface e notificações
 
-## Conceitos de POO aplicados
+As notificações possuem uma interface chamada `Notificacao`, que define o método `enviar()`. As classes de SMS, e-mail e aplicativo implementam esse método. Assim, a conta pode enviar uma mensagem sem precisar conhecer os detalhes de cada tipo de notificação.
 
-- **Encapsulamento:** atributos protegidos por modificadores de acesso e métodos de consulta e alteração.
-- **Abstração:** representação das entidades e operações essenciais do sistema.
-- **Herança:** estrutura de classes para especializar comportamentos.
-- **Polimorfismo:** diferentes implementações de notificação utilizando uma interface em comum.
-- **Associação:** relacionamento entre clientes e suas contas.
-- **Tratamento de exceções:** classes específicas para representar erros nas operações de saque.
+## Organização dos arquivos
 
-## Tecnologias
+- `models`: ficam as classes `Cliente` e `Conta`.
+- `interfaces`: fica a interface usada pelas notificações.
+- `notificacoes`: ficam as classes de SMS, e-mail e aplicativo.
+- `exceptions`: ficam as exceções usadas nas operações de saque.
+- `index.ts`: arquivo onde os objetos são criados e os exemplos são executados.
 
-- TypeScript
-- Node.js
-- npm
+## Conceitos utilizados
 
-## Estrutura do projeto
-
-```text
-src/
-├── exceptions/
-│   ├── ContaBloqueada.ts
-│   ├── ErroSaque.ts
-│   ├── LimiteDiarioExcedido.ts
-│   ├── SaldoInsuficiente.ts
-│   └── ValorInvalido.ts
-├── interfaces/
-│   └── Notificacao.ts
-├── models/
-│   ├── Cliente.ts
-│   └── Conta.ts
-├── notificacoes/
-│   ├── NotifApp.ts
-│   ├── NotifEmail.ts
-│   └── NotifSMS.ts
-└── index.ts
-```
+Durante a atividade foram utilizados encapsulamento, herança, polimorfismo, associação entre cliente e conta, interface e tratamento de exceções.
 
 ## Como executar
 
-É necessário ter o **Node.js** instalado.
+Com o Node.js instalado, abra o terminal na pasta do projeto e execute:
 
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/mathzsw/sistema-banco-digital.git
-   ```
+```bash
+npm install
+npm run dev
+```
 
-2. Entre na pasta do projeto:
-   ```bash
-   cd sistema-banco-digital
-   ```
+Para verificar se o TypeScript compila:
 
-3. Instale as dependências:
-   ```bash
-   npm install
-   ```
+```bash
+npm run build
+```
 
-4. Execute o projeto em modo de desenvolvimento:
-   ```bash
-   npm run dev
-   ```
-
-5. Para verificar a compilação TypeScript:
-   ```bash
-   npm run build
-   ```
-
----
-
-**Atividade de Programação Orientada a Objetos — 2026.**
+Repositório: https://github.com/mathzsw/sistema-banco-digital
