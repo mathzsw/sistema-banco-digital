@@ -1,10 +1,10 @@
 # Sistema Bancário Digital
 
-Este projeto foi feito para a atividade de POO do professor Havana. A proposta é criar um sistema simples para uma cooperativa de crédito, usando TypeScript.
+Este projeto foi feito para a atividade de POO. A proposta é criar um sistema simples para uma cooperativa de crédito, usando TypeScript.
 
 **Aluno:** Matheus Augusto Rodrigues de Alencar  
 **Turma:** 2º Ano A  
-**Professor:** Havana Diogo Alves Andrade
+**Professora:** Havana Diogo Alves Andrade
 
 ## O que o sistema faz
 
